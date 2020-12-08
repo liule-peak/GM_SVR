@@ -17,8 +17,7 @@ linearsvr = LinearSVR()  # 调用LinearSVR()函数
 linearsvr.fit(x_train, y_train)
 x = ((data[feature] - data_mean[feature]) /
      data_std[feature]).values  # 预测，并还原结果。
-data[u'y_pred'] = linearsvr.predict(x) * \
-    data_std['y'] + data_mean['y']
+data[u'y_pred'] = linearsvr.predict(x) * data_std['y'] + data_mean['y']
 # SVR预测后保存的结果
 outputfile = './datasave/new_reg_data_GM11_revenue.csv'
 data.to_csv(outputfile)
@@ -28,3 +27,4 @@ p = data[['y', 'y_pred']].plot(style=['b-o', 'r-*'])
 p.set_ylim(0, 2500)
 p.set_xlim(1993, 2016)
 plt.show()
+

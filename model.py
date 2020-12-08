@@ -5,7 +5,7 @@ from GM11 import GM11  # 引入灰色预测函数
 inputfile = './datasave/new_reg_data.csv'  # 输入的数据文件
 inputfile1 = './data.csv'  # 输入的数据文件
 new_reg_data = pd.read_csv(inputfile)  # 读取经过特征选择后的数据
-data = pd.read_csv(inputfile1)  # 读取经过特征选择后的数据
+data = pd.read_csv(inputfile1)  # 读取源数据
 new_reg_data.index = range(1994, 2014)
 new_reg_data.loc[2014] = None
 new_reg_data.loc[2015] = None
