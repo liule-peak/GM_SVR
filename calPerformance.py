@@ -1,5 +1,5 @@
+# coding:utf-8
 from __future__ import division
-# encoding:utf-8
 import pandas as pd
 import numpy as np
 
