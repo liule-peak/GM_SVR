@@ -10,17 +10,17 @@ $$
 
 使用
 
-`mask=lasso.coef_ != 0`
+ `mask=lasso.coef_ != 0`
 
-`new_reg_data = data.iloc[:, mask]`
+ `new_reg_data = data.iloc[:, mask]`
 
 将系数非0的项保留，系数为0的删除。
 
 ### person.py
 
-使用person方法计算相关系数。`data = np.round(data.corr(method = 'pearson'),2)`
+使用person方法计算相关系数。 `data = np.round(data.corr(method = 'pearson'),2)`
 
-将数据原index扔掉，然后重置`data.reset_index(drop = True)`
+将数据原index扔掉，然后重置 `data.reset_index(drop = True)`
 
 ### model.py
 
@@ -30,23 +30,25 @@ $$
 
 典型的灰色预测函数
 
-根据lasso和person确定要保留下的项`l = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']`
+根据lasso和person确定要保留下的项 `l = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']`
 
-将2014和2015的预测结果放入`new_reg_data`的l对应列表里
+将2014和2015的预测结果放入 `new_reg_data` 的l对应列表里
 
 ### SVR.py
 
 使用支持向量回归做y的预测
 
-根据lasso和person确定进行的项`feature = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']` 
+根据lasso和person确定进行的项 `feature = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']`
 
-之后将数据标准化，并调用调用`LinearSVR()`函数
+之后将数据标准化，并调用调用 `LinearSVR()` 函数
 
 ### calPerformance.py
 
 ​		用来评估预测模型是否良好。
 
-  ```
+  
+
+``` 
 模型效果指标评估指标：
 y_true：真实的数据值
 
@@ -63,7 +65,5 @@ r2_score：判定系数，其含义是也是解释回归模型的方差得分，
 ### data.csv
 
 ​		待处理的源文件
-
-
 
 ### 
