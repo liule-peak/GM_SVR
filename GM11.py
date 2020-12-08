@@ -7,8 +7,7 @@ def GM11(x0):  # 灰色预测函数
     Yn = x0[1:].reshape((len(x0)-1, 1))
     [[a], [b]] = np.dot(np.dot(np.linalg.inv(np.dot(B.T, B)), B.T), Yn)  # 计算参数
 
-    def f(k): return (x0[0]-b/a)*np.exp(-a*(k-1)) - \
-        (x0[0]-b/a)*np.exp(-a*(k-2))  # 还原值
+    def f(k): return (x0[0]-b/a)*np.exp(-a*(k-1)) - (x0[0]-b/a)*np.exp(-a*(k-2))  # 还原值
     delta = np.abs(x0 - np.array([f(i) for i in range(1, len(x0)+1)]))
     C = delta.std()/x0.std()
     P = 1.0*(np.abs(delta - delta.mean()) < 0.6745*x0.std()).sum()/len(x0)
