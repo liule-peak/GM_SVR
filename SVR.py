@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 inputfile = './datasave/new_reg_data_GM11.csv'  # 灰色预测后保存的路径
 data = pd.read_csv(inputfile)  # 读取数据
 data.index = range(1994, 2016)
-feature = ['x1', 'x3','x4', 'x5', 'x6', 'x7', 'x8','x13']
+feature = ['x1', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x13']
 data_train = data.loc[range(1994, 2014)].copy()  # 取2014年前的数据建模
 data_mean = data_train.mean()
 data_std = data_train.std()
@@ -28,4 +28,3 @@ p.set_ylim(0, 2500)
 p.set_xlim(1993, 2016)
 plt.savefig('./datasave/SVR.jpg')
 plt.show()
-

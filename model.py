@@ -9,14 +9,21 @@ data = pd.read_csv(inputfile1)  # 读取源数据
 new_reg_data.index = range(1994, 2014)
 new_reg_data.loc[2014] = None
 new_reg_data.loc[2015] = None
-l = ['x1', 'x3','x4', 'x5', 'x6', 'x7', 'x8','x13']
+l = ['x1', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x13']
+P = []
+C = []
 for i in l:
     # new_reg_data.loc[range(1994,2014),i]获取l(i)的列数据
     f = GM11(new_reg_data.loc[range(1994, 2014), i].values)[0]
+    P.append(GM11(new_reg_data.loc[range(1994, 2014), i].values)[5])
+    C.append(GM11(new_reg_data.loc[range(1994, 2014), i].values)[4])
     # 将2014和2015的预测结果放入new_reg_data的l对应列表里
     new_reg_data.loc[2014, i] = f(len(new_reg_data)-1)  # 2014年预测结果
     new_reg_data.loc[2015, i] = f(len(new_reg_data))  # 2015年预测结果
     new_reg_data[i] = new_reg_data[i].round(2)  # 保留两位小数
+
+for i in range(len(l)):
+    print(l[i] + ' '+'P ' + str(P[i])+' '+'C '+' ' + str(C[i].round(2)))
 outputfile = './datasave/new_reg_data_GM11.csv'  # 灰色预测后保存的路径
 y = list(data['y'].values)  # 提取财政收入列，合并至新数据框中
 y.extend([np.nan, np.nan])
