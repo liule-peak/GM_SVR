@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 inputfile = './datasave/new_reg_data_GM11.csv'  # 灰色预测后保存的路径
 data = pd.read_csv(inputfile)  # 读取数据
 data.index = range(1994, 2016)
-feature = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']
+feature = ['x1', 'x3','x4', 'x5', 'x6', 'x7', 'x8','x13']
 data_train = data.loc[range(1994, 2014)].copy()  # 取2014年前的数据建模
 data_mean = data_train.mean()
 data_std = data_train.std()
@@ -17,7 +17,7 @@ linearsvr = LinearSVR()  # 调用LinearSVR()函数
 linearsvr.fit(x_train, y_train)
 x = ((data[feature] - data_mean[feature]) /
      data_std[feature]).values  # 预测，并还原结果。
-data[u'y_pred'] = linearsvr.predict(x) * data_std['y'] + data_mean['y']
+data['y_pred'] = linearsvr.predict(x) * data_std['y'] + data_mean['y']
 # SVR预测后保存的结果
 outputfile = './datasave/new_reg_data_GM11_revenue.csv'
 data.to_csv(outputfile)

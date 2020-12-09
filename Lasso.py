@@ -12,9 +12,8 @@ print('相关系数为：', np.round(lasso.coef_, 5))  # 输出结果，保留�
 print('相关系数非零个数为：', np.sum(lasso.coef_ != 0))
 
 mask = lasso.coef_ != 0  # 返回一个相关系数是否为零的布尔数组
-print('相关系数是否为零：', mask)
+print('相关系数是否非零：', mask)
 mask = np.append(mask, True)
-
 
 outputfile = './datasave/new_reg_data.csv'  # 输出的数据文件
 new_reg_data = data.iloc[:, mask]  # 返回相关系数非零的数据
