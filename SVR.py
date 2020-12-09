@@ -26,5 +26,6 @@ print('真实值与预测值分别为：', data[['y', 'y_pred']])
 p = data[['y', 'y_pred']].plot(style=['b-o', 'r-*'])
 p.set_ylim(0, 2500)
 p.set_xlim(1993, 2016)
+plt.savefig('./datasave/SVR.jpg')
 plt.show()
 
