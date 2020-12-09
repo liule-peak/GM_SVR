@@ -9,7 +9,7 @@ data = pd.read_csv(inputfile1)  # 读取源数据
 new_reg_data.index = range(1994, 2014)
 new_reg_data.loc[2014] = None
 new_reg_data.loc[2015] = None
-l = ['x1', 'x4', 'x5', 'x6', 'x7', 'x8']
+l = ['x1', 'x3','x4', 'x5', 'x6', 'x7', 'x8','x13']
 for i in l:
     # new_reg_data.loc[range(1994,2014),i]获取l(i)的列数据
     f = GM11(new_reg_data.loc[range(1994, 2014), i].values)[0]

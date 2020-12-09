@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.linear_model import Lasso
 inputfile = './data.csv'  # 输入的数据文件
 data = pd.read_csv(inputfile)  # 读取数据
-lasso = Lasso(1000)  # 调用Lasso()函数，设置λ的值为1000
+lasso = Lasso(100)  # 调用Lasso()函数，设置λ的值为100
 lasso.fit(data.iloc[:, 0:14], data['y'])
 print('相关系数为：', np.round(lasso.coef_, 5))  # 输出结果，保留五位小数
 
